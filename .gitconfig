@@ -1,0 +1,11 @@
+[user]
+	name = jesse keane
+	email = me@jessekeane.me
+[core]
+        editor = vim
+[color]
+        ui = true
+[push]
+        default = tracking
+[github]
+        user = jarofghosts
