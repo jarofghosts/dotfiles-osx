@@ -22,8 +22,10 @@ set nocompatible
 
 " ## MAPPINGS ##
 
-" Remap ;j to take me out of insert mode without reaching for <Esc>
-inoremap ;j <Esc>
+" Remap ;a to take me out of insert mode without reaching for <Esc>
+inoremap ;a <Esc>
+" Remap ;s to save buffer and keep me in insert
+inoremap ;s :w<cr>i
 " Remap CTRL+L to un-highlight search results
 noremap <silent> <c-l> :nohls<cr><c-l>
 " CTRL+J scrolls down, CTRL+K scrolls up
