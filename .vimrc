@@ -6,6 +6,10 @@ set autoindent
 set encoding=utf8
 set number
 set hlsearch
+set undofile
+set undodir=$HOME/.vim/undo
+set undolevels=1000
+set undoreload=10000
 set shiftwidth=2
 set softtabstop=2
 set laststatus=2
@@ -18,14 +22,15 @@ set nocompatible
 
 " ## MAPPINGS ##
 
-" Remap ;a and ;j to take me out of insert mode without reaching for <Esc>
-inoremap ;a <Esc>
+" Remap ;j to take me out of insert mode without reaching for <Esc>
 inoremap ;j <Esc>
 " Remap CTRL+L to un-highlight search results
 noremap <silent> <c-l> :nohls<cr><c-l>
 " CTRL+J scrolls down, CTRL+K scrolls up
 noremap <c-j> <c-e>
 noremap <c-k> <c-y>
+" . works in visual mode as it should
+vnoremap . :normal .<cr>
 
 " ## PLUGINS ##
 
@@ -66,6 +71,7 @@ let g:airline_section_c=""
 let g:airline_section_x=""
 " put filetype in fifth section
 let g:airline_section_y="%Y"
+
 
 " Paaaathogeeeennnn
 execute pathogen#infect()
