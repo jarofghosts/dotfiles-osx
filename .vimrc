@@ -3,6 +3,7 @@ syntax on
 set t_Co=256
 set background=dark
 set autoindent
+set smartindent
 set encoding=utf8
 set number
 set hlsearch
@@ -24,8 +25,8 @@ set nocompatible
 
 " Remap ;a to take me out of insert mode without reaching for <Esc>
 inoremap ;a <Esc>
-" Remap ;s to save buffer and keep me in insert
-inoremap ;s <Esc>:w<cr>i
+" Remap ;s to save buffer
+inoremap ;s <Esc>:w<cr>
 " Remap CTRL+L to un-highlight search results
 noremap <silent> <c-l> :nohls<cr><c-l>
 " CTRL+J scrolls down, CTRL+K scrolls up
