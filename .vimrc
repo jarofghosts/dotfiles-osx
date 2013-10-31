@@ -5,6 +5,8 @@ set background=dark
 set autoindent
 set smartindent
 set encoding=utf8
+set backupdir=~/tmp
+set noswapfile
 set number
 set hlsearch
 set undofile
