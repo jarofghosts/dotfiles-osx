@@ -9,3 +9,11 @@
         default = tracking
 [github]
         user = jarofghosts
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[merge]
+        tool = vimdiffredux
+[mergetool "vimdiffredux"]
+        cmd = vimdiffredux \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
