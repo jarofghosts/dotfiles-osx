@@ -13,6 +13,8 @@ set undofile
 set undodir=$HOME/.vim/undo
 set undolevels=1000
 set undoreload=10000
+set nrformats=
+autocmd BufRead,BufNewFile *.md setlocal spell
 set shiftwidth=2
 set softtabstop=2
 set laststatus=2
