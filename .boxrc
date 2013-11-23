@@ -1,6 +1,9 @@
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
+export PATH=/usr/local/bin:$PATH:~/Files/android-sdk-macosx/tools:/Applications/0.3.11_darwin_amd64
 alias t='~/.todo.sh -d ~/.todo.cfg'
+ulimit -n 5000
 alias c='pbcopy'
 alias p='pbpaste'
+alias vimdiffredux='sh ~/.vimdifftool'
 export TODOTXT_DEFAULT_ACTION=ls

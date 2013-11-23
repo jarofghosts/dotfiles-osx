@@ -4,6 +4,7 @@ set t_Co=256
 set background=dark
 set autoindent
 set smartindent
+filetype plugin on
 set encoding=utf8
 set backupdir=~/tmp
 set noswapfile
@@ -18,7 +19,7 @@ autocmd BufRead,BufNewFile *.md setlocal spell
 set shiftwidth=2
 set softtabstop=2
 set laststatus=2
-colorscheme Tomorrow-Night-Bright
+colorscheme flatcolor
 set expandtab
 set backspace=indent,eol,start
 " Mark 80 columns to prevent spillage
@@ -67,8 +68,6 @@ let g:syntastic_ignore_files=['.*Projects\/personal\/.*']
 
 " vim-airline
 let g:airline_theme='wombat'
-let g:airline_left_sep = '»'
-let g:airline_right_sep = '«'
 " remove unused modes
 let g:airline_enable_fugitive=0
 " set second section to filename
