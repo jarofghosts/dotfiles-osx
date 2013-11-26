@@ -8,6 +8,7 @@ filetype plugin on
 set encoding=utf8
 set backupdir=~/tmp
 set noswapfile
+set cryptmethod=blowfish
 set number
 set hlsearch
 set undofile
