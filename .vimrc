@@ -10,6 +10,7 @@ set backupdir=~/tmp
 set noswapfile
 set cryptmethod=blowfish
 set number
+set history=200
 set wildmenu
 set wildmode=full
 set hlsearch
