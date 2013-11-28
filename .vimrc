@@ -1,3 +1,6 @@
+" Paaaathogeeeennnn
+execute pathogen#infect()
+
 " ## PREFERENCES ##
 syntax on
 set t_Co=256
@@ -13,13 +16,18 @@ set number
 set history=200
 set wildmenu
 set wildmode=full
+set noshowmode
 set hlsearch
 set undofile
 set undodir=$HOME/.vim/undo
 set undolevels=1000
 set undoreload=10000
+" treat numbers like humans treat numbers
 set nrformats=
+" turn spellcheck on for markdown files
 autocmd BufRead,BufNewFile *.md setlocal spell
+" autoclose fugitive buffers
+autocmd BufReadPost fugitive://* set bufhidden=delete
 set shiftwidth=2
 set softtabstop=2
 set laststatus=2
@@ -43,6 +51,14 @@ noremap <c-j> <c-e>
 noremap <c-k> <c-y>
 " . works in visual mode as it should
 vnoremap . :normal .<cr>
+" fugitive remaps
+noremap <Leader>w :Gwrite<cr>
+noremap <Leader>s :Gstatus<cr>
+noremap <Leader>c :Gcommit<cr>
+noremap <Leader>a :Gcommit -a<cr>
+noremap <Leader>b :Gbrowse<cr>
+noremap <Leader>d :Gdiff<cr>
+noremap <Leader>l :Gblame<cr>
 
 " The Silver Searcher
 if executable('ag')
@@ -83,17 +99,18 @@ let g:syntastic_html_checkers=[]
 let g:syntastic_ignore_files=['.*Projects\/personal\/.*']
 
 " vim-airline
+let g:airline_left_sep = '⮀'
+let g:airline_left_alt_sep = '⮁'
+let g:airline_right_sep = '⮂'
+let g:airline_right_alt_sep = '⮃'
+let g:airline_powerline_fonts=1
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+let g:airline_symbols.branch = '⭠'
+let g:airline_symbols.readonly = '⭤'
+let g:airline_symbols.linenr = '⭡'
+
 let g:airline_theme='wombat'
-" remove unused modes
-let g:airline_enable_fugitive=0
-" set second section to filename
-let g:airline_section_b="%f"
-" empty third and fourth sections
-let g:airline_section_c=""
-let g:airline_section_x=""
-" put filetype in fifth section
-let g:airline_section_y="%Y"
-
-
-" Paaaathogeeeennnn
-execute pathogen#infect()
