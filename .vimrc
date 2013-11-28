@@ -10,6 +10,8 @@ set backupdir=~/tmp
 set noswapfile
 set cryptmethod=blowfish
 set number
+set wildmenu
+set wildmode=full
 set hlsearch
 set undofile
 set undodir=$HOME/.vim/undo
