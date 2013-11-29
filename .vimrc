@@ -22,6 +22,8 @@ set undofile
 set undodir=$HOME/.vim/undo
 set undolevels=1000
 set undoreload=10000
+" i dont like to capitalize
+set spellcapcheck=
 " treat numbers like humans treat numbers
 set nrformats=
 " turn spellcheck on for markdown files
@@ -59,6 +61,7 @@ noremap <Leader>a :Gcommit -a<cr>
 noremap <Leader>b :Gbrowse<cr>
 noremap <Leader>d :Gdiff<cr>
 noremap <Leader>l :Gblame<cr>
+noremap <Leader>o :ls<cr>:b
 
 " The Silver Searcher
 if executable('ag')
@@ -92,6 +95,11 @@ let g:DVB_TrimWS = 1
 let g:gist_detect_filetype = 1
 let g:gist_show_privates = 1
 let g:gist_post_private = 1
+
+augroup markdown
+  au!
+  au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+augroup END
 
 " Syntastic checker
 let g:syntastic_javascript_checkers=['jsl']
