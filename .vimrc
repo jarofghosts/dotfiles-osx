@@ -6,6 +6,7 @@ syntax on
 set t_Co=256
 set background=dark
 set autoindent
+set autoread
 set smartindent
 filetype plugin on
 set encoding=utf8
@@ -39,6 +40,28 @@ set backspace=indent,eol,start
 " Mark 80 columns to prevent spillage
 set colorcolumn=80
 set nocompatible
+set incsearch
+
+
+command! Bclose call <SID>BufcloseCloseIt()
+function! <SID>BufcloseCloseIt()
+   let l:currentBufNum = bufnr("%")
+   let l:alternateBufNum = bufnr("#")
+
+   if buflisted(l:alternateBufNum)
+     buffer #
+   else
+     bnext
+   endif
+
+   if bufnr("%") == l:currentBufNum
+     new
+   endif
+
+   if buflisted(l:currentBufNum)
+     execute("bdelete! ".l:currentBufNum)
+   endif
+endfunction
 
 " ## MAPPINGS ##
 
@@ -53,6 +76,9 @@ noremap <c-j> <c-e>
 noremap <c-k> <c-y>
 " . works in visual mode as it should
 vnoremap . :normal .<cr>
+" , as leader
+let mapleader = ","
+let g:mapleader = ","
 " fugitive remaps
 noremap <Leader>w :Gwrite<cr>
 noremap <Leader>s :Gstatus<cr>
