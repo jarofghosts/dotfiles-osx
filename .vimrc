@@ -69,9 +69,12 @@ endfunction
 " ## MAPPINGS ##
 
 " Remap ;a to take me out of insert mode without reaching for <Esc>
-inoremap ;a <Esc>
+inoremap ;a <esc>
 " Remap ;s to save buffer
-inoremap ;s <Esc>:w<cr>
+inoremap ;s <esc>:w<cr>
+" allow c-p and c-n to do command filtering
+cnoremap <c-p> <up>
+cnoremap <c-n> <down>
 " Remap CTRL+L to un-highlight search results
 noremap <silent> <c-l> :nohls<cr><c-l>
 " CTRL+J scrolls down, CTRL+K scrolls up
@@ -112,11 +115,11 @@ endif
 " create a movable duplicate with D
 runtime plugin/dragvisuals.vim
 
-vmap  <expr>  <LEFT>   DVB_Drag('left')  
-vmap  <expr>  <RIGHT>  DVB_Drag('right') 
-vmap  <expr>  <DOWN>   DVB_Drag('down')  
-vmap  <expr>  <UP>     DVB_Drag('up')    
-vmap  <expr>  D        DVB_Duplicate()   
+vmap <expr> <left>   DVB_Drag('left')  
+vmap <expr> <right>  DVB_Drag('right') 
+vmap <expr> <down>   DVB_Drag('down')  
+vmap <expr> <up>     DVB_Drag('up')    
+vmap <expr> D        DVB_Duplicate()   
 
 " Remove any introduced trailing whitespace after moving...
 let g:DVB_TrimWS = 1
