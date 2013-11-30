@@ -2,22 +2,25 @@
 execute pathogen#infect()
 
 " ## PREFERENCES ##
+set nocompatible
 syntax on
-set t_Co=256
-set background=dark
 set autoindent
+" reload files changed outside vim
 set autoread
 set smartindent
 filetype plugin on
 set encoding=utf8
 set backupdir=~/tmp
 set noswapfile
+" i dunno, just in case
 set cryptmethod=blowfish
 set number
-set history=200
+set history=500
 set wildmenu
 set wildmode=full
+" don't need mode with airline
 set noshowmode
+" highlight search terms
 set hlsearch
 set undofile
 set undodir=$HOME/.vim/undo
@@ -37,12 +40,12 @@ set laststatus=2
 colorscheme flatcolor
 set expandtab
 set backspace=indent,eol,start
-" Mark 80 columns to prevent spillage
+" mark 80 columns to prevent spillage
 set colorcolumn=80
-set nocompatible
+" do the magic search thing
 set incsearch
 
-
+" don't close window on :bd
 command! Bclose call <SID>BufcloseCloseIt()
 function! <SID>BufcloseCloseIt()
    let l:currentBufNum = bufnr("%")
@@ -87,6 +90,7 @@ noremap <Leader>a :Gcommit -a<cr>
 noremap <Leader>b :Gbrowse<cr>
 noremap <Leader>d :Gdiff<cr>
 noremap <Leader>l :Gblame<cr>
+" open bufferlist and prefill :b
 noremap <Leader>o :ls<cr>:b
 
 " The Silver Searcher
@@ -122,6 +126,7 @@ let g:gist_detect_filetype = 1
 let g:gist_show_privates = 1
 let g:gist_post_private = 1
 
+" use github-flavored markdown syntax highlighting
 augroup markdown
   au!
   au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
