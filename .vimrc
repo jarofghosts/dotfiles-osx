@@ -2,6 +2,7 @@
 execute pathogen#infect()
 
 " ## PREFERENCES ##
+set background=dark
 set nocompatible
 syntax on
 set autoindent
@@ -86,15 +87,15 @@ vnoremap . :normal .<cr>
 let mapleader = ","
 let g:mapleader = ","
 " fugitive remaps
-noremap <Leader>w :Gwrite<cr>
-noremap <Leader>s :Gstatus<cr>
-noremap <Leader>c :Gcommit<cr>
-noremap <Leader>a :Gcommit -a<cr>
-noremap <Leader>b :Gbrowse<cr>
-noremap <Leader>d :Gdiff<cr>
-noremap <Leader>l :Gblame<cr>
+noremap <leader>w :Gwrite<cr>
+noremap <leader>s :Gstatus<cr>
+noremap <leader>c :Gcommit<cr>
+noremap <leader>a :Gcommit -a<cr>
+noremap <leader>b :Gbrowse<cr>
+noremap <leader>d :Gdiff<cr>
+noremap <leader>l :Gblame<cr>
 " open bufferlist and prefill :b
-noremap <Leader>o :ls<cr>:b
+noremap <leader>o :ls<cr>:b
 
 " The Silver Searcher
 if executable('ag')
