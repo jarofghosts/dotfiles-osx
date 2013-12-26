@@ -4,12 +4,17 @@ execute pathogen#infect()
 " ## PREFERENCES ##
 set background=dark
 set nocompatible
+" indent html tags
+let g:html_indent_inctags="head,html,body,p,head,table,tbody,div,script"
+let g:html_indent_script1="inc"
+let g:html_indent_style1="inc"
 syntax on
 set autoindent
 " reload files changed outside vim
 set autoread
 set smartindent
 filetype plugin on
+filetype indent on
 set encoding=utf8
 set backupdir=~/tmp
 set noswapfile
@@ -38,7 +43,7 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 set shiftwidth=2
 set softtabstop=2
 set laststatus=2
-colorscheme flatcolor
+colorscheme wombat256i "flatcolor
 set expandtab
 set backspace=indent,eol,start
 " mark 80 columns to prevent spillage
@@ -94,8 +99,7 @@ noremap <leader>a :Gcommit -a<cr>
 noremap <leader>b :Gbrowse<cr>
 noremap <leader>d :Gdiff<cr>
 noremap <leader>l :Gblame<cr>
-" open bufferlist and prefill :b
-noremap <leader>o :ls<cr>:b
+noremap <leader>o :EasyBuffer<cr>
 
 " The Silver Searcher
 if executable('ag')
