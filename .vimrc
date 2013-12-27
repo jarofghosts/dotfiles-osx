@@ -4,10 +4,6 @@ execute pathogen#infect()
 " ## PREFERENCES ##
 set background=dark
 set nocompatible
-" indent html tags
-let g:html_indent_inctags="head,html,body,p,head,table,tbody,div,script"
-let g:html_indent_script1="inc"
-let g:html_indent_style1="inc"
 syntax on
 set autoindent
 " reload files changed outside vim
@@ -100,6 +96,7 @@ noremap <leader>b :Gbrowse<cr>
 noremap <leader>d :Gdiff<cr>
 noremap <leader>l :Gblame<cr>
 noremap <leader>o :EasyBuffer<cr>
+noremap <leader>p :Pasttle<cr>
 
 " The Silver Searcher
 if executable('ag')
@@ -128,6 +125,14 @@ vmap <expr> D        DVB_Duplicate()
 
 " Remove any introduced trailing whitespace after moving...
 let g:DVB_TrimWS = 1
+
+" indent html tags
+let g:html_indent_inctags="head,html,body,p,head,table,tbody,div,script"
+let g:html_indent_script1="inc"
+let g:html_indent_style1="inc"
+
+"copy pasttle url to clipboard after pasting
+let g:pasttle_clipboard_after_post=1
 
 " vim-gist
 let g:gist_detect_filetype = 1
