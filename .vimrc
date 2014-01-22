@@ -3,16 +3,19 @@ execute pathogen#infect()
 
 " ## PREFERENCES ##
 set background=dark
+" take that, vi
 set nocompatible
 syntax on
 set autoindent
 " reload files changed outside vim
 set autoread
+" "smart"indent :|
 set smartindent
 filetype plugin on
 filetype indent on
 set encoding=utf8
 set backupdir=~/tmp
+" </3 .swp
 set noswapfile
 " i dunno, just in case
 set cryptmethod=blowfish
@@ -24,6 +27,7 @@ set wildmode=full
 set noshowmode
 " highlight search terms
 set hlsearch
+" maintain undo levels between buffer closings
 set undofile
 set undodir=$HOME/.vim/undo
 set undolevels=1000
@@ -32,14 +36,16 @@ set undoreload=10000
 set spellcapcheck=
 " treat numbers like humans treat numbers
 set nrformats=
-" turn spellcheck on for markdown files
+" turn spellcheck on for markdown and rest files
 autocmd BufRead,BufNewFile *.md setlocal spell
+autocmd BufRead,BufNewFile *.rst setlocal spell
 " autoclose fugitive buffers
 autocmd BufReadPost fugitive://* set bufhidden=delete
 set shiftwidth=2
 set softtabstop=2
 set laststatus=2
-colorscheme wombat256i "flatcolor
+" wombat is good.
+colorscheme wombat256i
 set expandtab
 set backspace=indent,eol,start
 " mark 80 columns to prevent spillage
@@ -84,9 +90,9 @@ noremap <c-j> <c-e>
 noremap <c-k> <c-y>
 " . works in visual mode as it should
 vnoremap . :normal .<cr>
-" , as leader
-let mapleader = ","
-let g:mapleader = ","
+" space as leader, just crazy enough to work
+let mapleader=" "
+let g:mapleader=" "
 " fugitive remaps
 noremap <leader>w :Gwrite<cr>
 noremap <leader>s :Gstatus<cr>
@@ -97,6 +103,8 @@ noremap <leader>d :Gdiff<cr>
 noremap <leader>l :Gblame<cr>
 noremap <leader>o :EasyBuffer<cr>
 noremap <leader>p :Pasttle<cr>
+noremap <leader>f gf
+noremap <leader>F :vertical wincmd f<cr> 
 
 " The Silver Searcher
 if executable('ag')
@@ -131,7 +139,7 @@ let g:html_indent_inctags="head,html,body,p,head,table,tbody,div,script"
 let g:html_indent_script1="inc"
 let g:html_indent_style1="inc"
 
-"copy pasttle url to clipboard after pasting
+" copy pasttle url to clipboard after pasting
 let g:pasttle_clipboard_after_post=1
 
 " vim-gist
@@ -148,6 +156,7 @@ augroup END
 " Syntastic checker
 let g:syntastic_javascript_checkers=['jsl']
 let g:syntastic_html_checkers=[]
+" syntastic is just for work
 let g:syntastic_ignore_files=['.*Projects\/personal\/.*']
 
 " vim-airline
