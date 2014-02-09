@@ -94,17 +94,18 @@ vnoremap . :normal .<cr>
 let mapleader=" "
 let g:mapleader=" "
 " fugitive remaps
-noremap <leader>w :Gwrite<cr>
-noremap <leader>s :Gstatus<cr>
-noremap <leader>c :Gcommit<cr>
-noremap <leader>a :Gcommit -a<cr>
 noremap <leader>b :Gbrowse<cr>
 noremap <leader>d :Gdiff<cr>
 noremap <leader>l :Gblame<cr>
-noremap <leader>o :EasyBuffer<cr>
+" other misc remaps
+noremap <leader>g :Gist<cr>
+noremap <leader>r :GitGutterToggle<cr>
 noremap <leader>p :Pasttle<cr>
 noremap <leader>f gf
 noremap <leader>F :vertical wincmd f<cr> 
+noremap <leader>s :CodeReviewCommentChange<cr>
+noremap <leader>S :CodeReviewComment<cr>
+noremap <leader>R :CodeReviewReloadComments<cr>
 
 " The Silver Searcher
 if executable('ag')
