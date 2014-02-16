@@ -2,17 +2,18 @@
 execute pathogen#infect()
 
 " ## PREFERENCES ##
+filetype plugin on
+filetype indent on
+syntax on
+
 set background=dark
 " take that, vi
 set nocompatible
-syntax on
 set autoindent
 " reload files changed outside vim
 set autoread
 " "smart"indent :|
 set smartindent
-filetype plugin on
-filetype indent on
 set encoding=utf8
 set backupdir=~/tmp
 " </3 .swp
@@ -36,16 +37,10 @@ set undoreload=10000
 set spellcapcheck=
 " treat numbers like humans treat numbers
 set nrformats=
-" turn spellcheck on for markdown and rest files
-autocmd BufRead,BufNewFile *.md setlocal spell
-autocmd BufRead,BufNewFile *.rst setlocal spell
-" autoclose fugitive buffers
-autocmd BufReadPost fugitive://* set bufhidden=delete
+" uh huh
 set shiftwidth=2
 set softtabstop=2
 set laststatus=2
-" wombat is good.
-colorscheme wombat256i
 set expandtab
 set backspace=indent,eol,start
 " mark 80 columns to prevent spillage
@@ -53,39 +48,23 @@ set colorcolumn=80
 " do the magic search thing
 set incsearch
 
-" don't close window on :bd
-command! Bclose call <SID>BufcloseCloseIt()
-function! <SID>BufcloseCloseIt()
-   let l:currentBufNum = bufnr("%")
-   let l:alternateBufNum = bufnr("#")
+" turn spellcheck on for markdown and rst files
+autocmd BufRead,BufNewFile *.md setlocal spell
+autocmd BufRead,BufNewFile *.rst setlocal spell
+" autoclose fugitive buffers
+autocmd BufReadPost fugitive://* set bufhidden=delete
 
-   if buflisted(l:alternateBufNum)
-     buffer #
-   else
-     bnext
-   endif
-
-   if bufnr("%") == l:currentBufNum
-     new
-   endif
-
-   if buflisted(l:currentBufNum)
-     execute("bdelete! ".l:currentBufNum)
-   endif
-endfunction
+" wombat is good.
+colorscheme wombat256i
 
 " ## MAPPINGS ##
 
-" Remap ;a to take me out of insert mode without reaching for <Esc>
-inoremap ;a <esc>
-" Remap ;s to save buffer
-inoremap ;s <esc>:w<cr>
 " allow c-p and c-n to do command filtering
 cnoremap <c-p> <up>
 cnoremap <c-n> <down>
-" Remap CTRL+L to un-highlight search results
+" remap ctrl+l to un-highlight search results
 noremap <silent> <c-l> :nohls<cr><c-l>
-" CTRL+J scrolls down, CTRL+K scrolls up
+" ctrl+j scrolls down, ctrl+k scrolls up
 noremap <c-j> <c-e>
 noremap <c-k> <c-y>
 " . works in visual mode as it should
@@ -97,15 +76,16 @@ let g:mapleader=" "
 noremap <leader>b :Gbrowse<cr>
 noremap <leader>d :Gdiff<cr>
 noremap <leader>l :Gblame<cr>
-" other misc remaps
+" g creates new secret gist
 noremap <leader>g :Gist<cr>
-noremap <leader>r :GitGutterToggle<cr>
+" D toggles gitgutter
+noremap <leader>D :GitGutterToggle<cr>
+" p creates new pasttle
 noremap <leader>p :Pasttle<cr>
+" f opens file
 noremap <leader>f gf
+" F opens file in new vertical split
 noremap <leader>F :vertical wincmd f<cr> 
-noremap <leader>s :CodeReviewCommentChange<cr>
-noremap <leader>S :CodeReviewComment<cr>
-noremap <leader>R :CodeReviewReloadComments<cr>
 
 " The Silver Searcher
 if executable('ag')
@@ -140,9 +120,6 @@ let g:html_indent_inctags="head,html,body,p,head,table,tbody,div,script"
 let g:html_indent_script1="inc"
 let g:html_indent_style1="inc"
 
-" copy pasttle url to clipboard after pasting
-let g:pasttle_clipboard_after_post=1
-
 " vim-gist
 let g:gist_detect_filetype = 1
 let g:gist_show_privates = 1
@@ -175,4 +152,5 @@ let g:airline_symbols.branch = '⭠'
 let g:airline_symbols.readonly = '⭤'
 let g:airline_symbols.linenr = '⭡'
 
+" wombat is good
 let g:airline_theme='wombat'
