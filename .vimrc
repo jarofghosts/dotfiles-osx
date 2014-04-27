@@ -81,11 +81,17 @@ noremap <leader>g :Gist<cr>
 " D toggles gitgutter
 noremap <leader>D :GitGutterToggle<cr>
 " p creates new pasttle
-noremap <leader>p :Pasttle<cr>
+noremap <leader>P :Pasttle<cr>
 " f opens file
 noremap <leader>f gf
 " F opens file in new vertical split
 noremap <leader>F :vertical wincmd f<cr> 
+" T runs npm test
+noremap <leader>T :!npm test<cr>
+" y yanks into system clipboard
+vmap <leader>y "+y
+" p pastes from system clipboard
+nmap <leader>p "+p
 
 " The Silver Searcher
 if executable('ag')
