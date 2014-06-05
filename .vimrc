@@ -59,6 +59,9 @@ colorscheme wombat256i
 
 " ## MAPPINGS ##
 
+" set a mark before a search for easy jumping back
+nnoremap / ml/
+nnoremap ? ml?
 " allow c-p and c-n to do command filtering
 cnoremap <c-p> <up>
 cnoremap <c-n> <down>
@@ -92,6 +95,8 @@ noremap <leader>T :!npm test<cr>
 vmap <leader>y "+y
 " p pastes from system clipboard
 nmap <leader>p "+p
+" switch var statement with next var
+nmap <leader>s ddpcw  ,<esc>kvhhcvar<esc>
 
 " The Silver Searcher
 if executable('ag')
