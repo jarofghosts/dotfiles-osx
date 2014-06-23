@@ -1,10 +1,16 @@
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
-export PATH=/usr/local/bin:$PATH:~/Files/android-sdk-macosx/tools:/Applications/0.3.11_darwin_amd64
+export PATH=~/.bin:/usr/local/bin:$PATH:~/Files/android-sdk-macosx/tools:/Applications/0.3.11_darwin_amd64
 alias t='~/.todo.sh -d ~/.todo.cfg'
 ulimit -n 5000
 bindkey -v
 alias c='pbcopy'
+alias md='sharkdown'
 alias p='pbpaste'
 alias vimdiffredux='sh ~/.vimdifftool'
+alias love='/Applications/love.app/Contents/MacOS/love'
 export TODOTXT_DEFAULT_ACTION=ls
+alias mit='cp ~/Files/MIT.txt ./LICENSE'
+alias hag='ag --html'
+alias jag='ag --js'
+alias pag='ag --python'
