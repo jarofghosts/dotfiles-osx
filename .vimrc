@@ -16,6 +16,7 @@ set autoread
 set smartindent
 set encoding=utf8
 set backupdir=~/tmp
+set ofu=syntaxcomplete#Complete
 " </3 .swp
 set noswapfile
 " i dunno, just in case
@@ -47,6 +48,11 @@ set backspace=indent,eol,start
 set colorcolumn=80
 " do the magic search thing
 set incsearch
+
+" enable omnicompletion for some filetypes
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 
 " turn spellcheck on for markdown and rst files
 autocmd BufRead,BufNewFile *.md setlocal spell
@@ -98,19 +104,37 @@ nmap <leader>p "+p
 " switch var statement with next var
 nmap <leader>s ddpcw  ,<esc>kvhhcvar<esc>
 
+" neocomplcache
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+
+function! s:my_cr_function()
+  return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+endfunction
+
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
 " The Silver Searcher
 if executable('ag')
   " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g "" --ignore "node_modules/"'
 
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
 
 " ## PLUGINS ##
+
+" Use neocomplcache.
+let g:neocomplcache_enable_at_startup = 1
+" Use smartcase.
+let g:neocomplcache_enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplcache_min_syntax_length = 3
 
 " Visual block drag plugin + settings,
 " select block and then move it with arrow keys, or
@@ -145,8 +169,6 @@ augroup END
 " Syntastic checker
 let g:syntastic_javascript_checkers=['jsl']
 let g:syntastic_html_checkers=[]
-" syntastic is just for work
-let g:syntastic_ignore_files=['.*Projects\/personal\/.*']
 
 " vim-airline
 let g:airline_left_sep = '⮀'
