@@ -55,6 +55,8 @@ set incsearch
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " turn spellcheck on for markdown and rst files
 autocmd BufRead,BufNewFile *.md setlocal spell
@@ -108,12 +110,12 @@ nmap <leader>p "+p
 " switch var statement with next var
 nmap <leader>s ddpcw  ,<esc>kvhhcvar<esc>
 
-" neocomplcache
+" neocomplete
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 
 function! s:my_cr_function()
-  return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+  return pumvisible() ? neocomplete#close_popup() : "\<CR>"
 endfunction
 
 " <TAB>: completion.
@@ -133,12 +135,12 @@ endif
 
 " ## PLUGINS ##
 
-" Use neocomplcache.
-let g:neocomplcache_enable_at_startup = 1
+" Use neocomplete.
+let g:neocomplete_enable_at_startup = 1
 " Use smartcase.
-let g:neocomplcache_enable_smart_case = 1
+let g:neocomplete_enable_smart_case = 1
 " Set minimum syntax keyword length.
-let g:neocomplcache_min_syntax_length = 3
+let g:neocomplete_min_syntax_length = 3
 
 " Visual block drag plugin + settings,
 " select block and then move it with arrow keys, or
@@ -173,9 +175,12 @@ augroup END
 
 " align sub-forms in a pretty way
 let g:clojure_align_subforms = 1
+let g:slimv_swank_cmd = '!osascript -e "tell application \"Terminal\" to do script \"sbcl --load ~/.vim/bundle/slimv/slime/start-swank.lisp\""'
+let g:slimv_swank_clojure = '!osascript -e "tell application \"Terminal\" to do script \"cake swank\""'
 
 " Syntastic checker
-let g:syntastic_javascript_checkers=['jsl']
+let g:syntastic_javascript_checkers=['eslint']
+let g:syntastic_javascript_eslint_args='--config ~/Projects/UA/ua-style/config.json --rulesdir ~/Projects/UA/ua-style/lib/rules'
 let g:syntastic_html_checkers=[]
 
 " vim-airline
