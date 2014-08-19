@@ -6,6 +6,8 @@ filetype plugin on
 filetype indent on
 syntax on
 
+set lazyredraw
+set ttyfast
 set background=dark
 " take that, vi
 set nocompatible
@@ -59,6 +61,8 @@ autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd BufRead,BufNewFile *.rst setlocal spell
 " autoclose fugitive buffers
 autocmd BufReadPost fugitive://* set bufhidden=delete
+" use open for Gbrowse in fugitive
+command! -bar -nargs=1 Browse silent! exe '!open' shellescape(<q-args>, 1)
 
 " wombat is good.
 colorscheme wombat256i
@@ -156,6 +160,7 @@ let g:html_indent_script1="inc"
 let g:html_indent_style1="inc"
 
 " vim-gist
+let g:gist_open_browser_after_post = 1
 let g:gist_detect_filetype = 1
 let g:gist_show_privates = 1
 let g:gist_post_private = 1
@@ -165,6 +170,9 @@ augroup markdown
   au!
   au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
 augroup END
+
+" align sub-forms in a pretty way
+let g:clojure_align_subforms = 1
 
 " Syntastic checker
 let g:syntastic_javascript_checkers=['jsl']
