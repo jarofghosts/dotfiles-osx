@@ -87,6 +87,9 @@ vnoremap . :normal .<cr>
 " space as leader, just crazy enough to work
 let mapleader=" "
 let g:mapleader=" "
+" syntastic remaps
+noremap <leader>, :lprev<cr>
+noremap <leader>. :lnext<cr>
 " fugitive remaps
 noremap <leader>b :Gbrowse<cr>
 noremap <leader>d :Gdiff<cr>
@@ -136,25 +139,11 @@ endif
 " ## PLUGINS ##
 
 " Use neocomplete.
-let g:neocomplete_enable_at_startup = 1
+let g:neocomplete#enable_at_startup = 1
 " Use smartcase.
-let g:neocomplete_enable_smart_case = 1
+let g:neocomplete#enable_smart_case = 1
 " Set minimum syntax keyword length.
-let g:neocomplete_min_syntax_length = 3
-
-" Visual block drag plugin + settings,
-" select block and then move it with arrow keys, or
-" create a movable duplicate with D
-runtime plugin/dragvisuals.vim
-
-vmap <expr> <left>   DVB_Drag('left')  
-vmap <expr> <right>  DVB_Drag('right') 
-vmap <expr> <down>   DVB_Drag('down')  
-vmap <expr> <up>     DVB_Drag('up')    
-vmap <expr> D        DVB_Duplicate()   
-
-" Remove any introduced trailing whitespace after moving...
-let g:DVB_TrimWS = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
 
 " indent html tags
 let g:html_indent_inctags="head,html,body,p,head,table,tbody,div,script"
@@ -175,8 +164,7 @@ augroup END
 
 " align sub-forms in a pretty way
 let g:clojure_align_subforms = 1
-let g:slimv_swank_cmd = '!osascript -e "tell application \"Terminal\" to do script \"sbcl --load ~/.vim/bundle/slimv/slime/start-swank.lisp\""'
-let g:slimv_swank_clojure = '!osascript -e "tell application \"Terminal\" to do script \"cake swank\""'
+let g:clojure_align_multiline_strings = 1
 
 " Syntastic checker
 let g:syntastic_javascript_checkers=['eslint']
