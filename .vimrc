@@ -144,6 +144,8 @@ let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 " Set minimum syntax keyword length.
 let g:neocomplete#sources#syntax#min_keyword_length = 3
+" overwrite complete function
+let g:neocomplete#force_overwrite_completefunc = 1
 
 " indent html tags
 let g:html_indent_inctags="head,html,body,p,head,table,tbody,div,script"
