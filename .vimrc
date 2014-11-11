@@ -58,6 +58,8 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
+" turn on html syntax for ract files
+autocmd BufNewFile,BufRead *.ract set filetype=html
 " turn spellcheck on for markdown and rst files
 autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd BufRead,BufNewFile *.rst setlocal spell
@@ -71,6 +73,9 @@ colorscheme wombat256i
 
 " ## MAPPINGS ##
 
+" left and right arrows navigate buffers
+nnoremap <left> :bp<cr>
+nnoremap <right> :bn<cr>
 " set a mark before a search for easy jumping back
 nnoremap / ml/
 nnoremap ? ml?
@@ -100,6 +105,8 @@ noremap <leader>g :Gist<cr>
 noremap <leader>D :GitGutterToggle<cr>
 " p creates new pasttle
 noremap <leader>P :Pasttle<cr>
+" u opens url
+noremap <leader>u gx
 " f opens file
 noremap <leader>f gf
 " F opens file in new vertical split
