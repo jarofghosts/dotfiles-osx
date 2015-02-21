@@ -68,8 +68,8 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 " use open for Gbrowse in fugitive
 command! -bar -nargs=1 Browse silent! exe '!open' shellescape(<q-args>, 1)
 
-" wombat is good.
-colorscheme wombat256i
+" dracula is good.
+colorscheme dracula
 
 " ## MAPPINGS ##
 
@@ -82,11 +82,13 @@ nnoremap ? ml?
 " allow c-p and c-n to do command filtering
 cnoremap <c-p> <up>
 cnoremap <c-n> <down>
-" remap ctrl+l to un-highlight search results
-noremap <silent> <c-l> :nohls<cr><c-l>
-" ctrl+j scrolls down, ctrl+k scrolls up
-noremap <c-j> <c-e>
-noremap <c-k> <c-y>
+" remap ctrl+l and ctrl+h to swap panes
+noremap <silent> <c-h> :wincmd h<cr>
+noremap <silent> <c-l> :wincmd l<cr>
+" remap ctrl+i to un-highlight search results
+noremap <silent> <c-i> :nohls<cr><c-i>
+" ctrl+j activates :Ag
+noremap <c-j> :Ag 
 " . works in visual mode as it should
 vnoremap . :normal .<cr>
 " space as leader, just crazy enough to work
@@ -143,8 +145,12 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
+let g:agprg="ag --nogroup --nocolor --ignore node_modules/ --ignore '*.min.*' --column"
+
 " ## PLUGINS ##
 
+" conceal JS stuffs
+let g:javascript_conceal = 1
 " Use neocomplete.
 let g:neocomplete#enable_at_startup = 1
 " Use smartcase.
@@ -181,6 +187,7 @@ let g:syntastic_javascript_eslint_args='--config ~/Projects/UA/ua-style/config.j
 let g:syntastic_html_checkers=[]
 
 " vim-airline
+let g:airline#extensions#whitespace#enabled = 0
 let g:airline_left_sep = '⮀'
 let g:airline_left_alt_sep = '⮁'
 let g:airline_right_sep = '⮂'
@@ -195,5 +202,6 @@ let g:airline_symbols.branch = '⭠'
 let g:airline_symbols.readonly = '⭤'
 let g:airline_symbols.linenr = '⭡'
 
-" wombat is good
-let g:airline_theme='wombat'
+let g:airline_theme='tomorrow'
+
+au BufEnter *.js set conceallevel=1
