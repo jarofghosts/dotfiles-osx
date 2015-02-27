@@ -68,6 +68,10 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 " use open for Gbrowse in fugitive
 command! -bar -nargs=1 Browse silent! exe '!open' shellescape(<q-args>, 1)
 
+" fenced code blocks in markdown files
+au BufNewFile,BufReadPost *.md set filetype=markdown
+let g:markdown_fenced_languages = ['css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml', 'html']
+
 " dracula is good.
 colorscheme dracula
 
@@ -82,11 +86,8 @@ nnoremap ? ml?
 " allow c-p and c-n to do command filtering
 cnoremap <c-p> <up>
 cnoremap <c-n> <down>
-" remap ctrl+l and ctrl+h to swap panes
-noremap <silent> <c-h> :wincmd h<cr>
-noremap <silent> <c-l> :wincmd l<cr>
 " remap ctrl+i to un-highlight search results
-noremap <silent> <c-i> :nohls<cr><c-i>
+noremap <silent> <c-l> :nohls<cr><c-l>
 " ctrl+j activates :Ag
 noremap <c-j> :Ag 
 " . works in visual mode as it should
