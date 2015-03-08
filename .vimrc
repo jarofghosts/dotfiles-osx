@@ -1,13 +1,14 @@
 " Paaaathogeeeennnn
 execute pathogen#infect()
-
 " ## PREFERENCES ##
 filetype plugin on
 filetype indent on
+set conceallevel=2
+set concealcursor=nc
+set noshowmode
 syntax on
 
 set lazyredraw
-set ttyfast
 set background=dark
 " take that, vi
 set nocompatible
@@ -22,13 +23,10 @@ set ofu=syntaxcomplete#Complete
 " </3 .swp
 set noswapfile
 " i dunno, just in case
-set cryptmethod=blowfish
 set number
 set history=500
 set wildmenu
 set wildmode=full
-" don't need mode with airline
-set noshowmode
 " highlight search terms
 set hlsearch
 " maintain undo levels between buffer closings
@@ -59,7 +57,7 @@ autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " turn on html syntax for ract files
-autocmd BufNewFile,BufRead *.ract set filetype=html
+autocmd BufNewFile,BufRead *.ract set filetype=mustache
 " turn spellcheck on for markdown and rst files
 autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd BufRead,BufNewFile *.rst setlocal spell
@@ -73,7 +71,7 @@ au BufNewFile,BufReadPost *.md set filetype=markdown
 let g:markdown_fenced_languages = ['css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml', 'html']
 
 " dracula is good.
-colorscheme dracula
+colorscheme skittles_berry
 
 " ## MAPPINGS ##
 
@@ -117,22 +115,22 @@ noremap <leader>F :vertical wincmd f<cr>
 " T runs npm test
 noremap <leader>T :!npm test<cr>
 " y yanks into system clipboard
-vmap <leader>y "+y
+vmap <leader>y "*y
 " p pastes from system clipboard
-nmap <leader>p "+p
+nmap <leader>p "*p
 " switch var statement with next var
 nmap <leader>s ddpcw  ,<esc>kvhhcvar<esc>
 
 " neocomplete
 " <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+"inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 
-function! s:my_cr_function()
-  return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-endfunction
+" function! s:my_cr_function()
+  " return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+" endfunction
 
 " <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " The Silver Searcher
 if executable('ag')
@@ -150,17 +148,6 @@ let g:agprg="ag --nogroup --nocolor --ignore node_modules/ --ignore '*.min.*' --
 
 " ## PLUGINS ##
 
-" conceal JS stuffs
-let g:javascript_conceal = 1
-" Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
-" Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-" overwrite complete function
-let g:neocomplete#force_overwrite_completefunc = 1
-
 " indent html tags
 let g:html_indent_inctags="head,html,body,p,head,table,tbody,div,script"
 let g:html_indent_script1="inc"
@@ -172,12 +159,6 @@ let g:gist_detect_filetype = 1
 let g:gist_show_privates = 1
 let g:gist_post_private = 1
 
-" use github-flavored markdown syntax highlighting
-augroup markdown
-  au!
-  au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
-augroup END
-
 " align sub-forms in a pretty way
 let g:clojure_align_subforms = 1
 let g:clojure_align_multiline_strings = 1
@@ -187,22 +168,13 @@ let g:syntastic_javascript_checkers=['eslint']
 let g:syntastic_javascript_eslint_args='--config ~/Projects/UA/ua-style/config.json --rulesdir ~/Projects/UA/ua-style/lib/rules'
 let g:syntastic_html_checkers=[]
 
-" vim-airline
-let g:airline#extensions#whitespace#enabled = 0
-let g:airline_left_sep = '⮀'
-let g:airline_left_alt_sep = '⮁'
-let g:airline_right_sep = '⮂'
-let g:airline_right_alt_sep = '⮃'
-let g:airline_powerline_fonts=1
+let g:javascript_conceal_function = "ƒ"
+let g:javascript_conceal_null = "ø"
+let g:javascript_conceal_NaN = "ℕ"
 
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
+hi StatusLine term=reverse ctermfg=232 ctermbg=1
+" now set it up to change the status line based on mode
+if version >= 700
+  au InsertEnter * hi StatusLine term=reverse ctermfg=1 ctermbg=232
+  au InsertLeave * hi StatusLine term=reverse ctermfg=232 ctermbg=1
 endif
-
-let g:airline_symbols.branch = '⭠'
-let g:airline_symbols.readonly = '⭤'
-let g:airline_symbols.linenr = '⭡'
-
-let g:airline_theme='tomorrow'
-
-au BufEnter *.js set conceallevel=1
