@@ -168,9 +168,9 @@ let g:syntastic_javascript_checkers=['eslint']
 let g:syntastic_javascript_eslint_args='--config ~/Projects/UA/ua-style/config.json --rulesdir ~/Projects/UA/ua-style/lib/rules'
 let g:syntastic_html_checkers=[]
 
-let g:javascript_conceal_function = "ƒ"
-let g:javascript_conceal_null = "ø"
-let g:javascript_conceal_NaN = "ℕ"
+" let g:javascript_conceal_function = "ƒ"
+" let g:javascript_conceal_null = "ø"
+" let g:javascript_conceal_NaN = "ℕ"
 
 hi StatusLine term=reverse ctermfg=232 ctermbg=1
 " now set it up to change the status line based on mode
