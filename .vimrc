@@ -59,6 +59,7 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " turn on html syntax for ract files
 autocmd BufNewFile,BufRead *.ract set filetype=mustache
 " turn spellcheck on for markdown and rst files
+autocmd BufRead,BufNewFile *.txt setlocal spell
 autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd BufRead,BufNewFile *.rst setlocal spell
 " autoclose fugitive buffers
@@ -70,7 +71,6 @@ command! -bar -nargs=1 Browse silent! exe '!open' shellescape(<q-args>, 1)
 au BufNewFile,BufReadPost *.md set filetype=markdown
 let g:markdown_fenced_languages = ['css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml', 'html']
 
-" dracula is good.
 colorscheme skittles_berry
 
 " ## MAPPINGS ##
