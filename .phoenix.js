@@ -3,20 +3,18 @@ var currentMode = 'insert'
 
 var shift = ['shift']
   , ctrl = ['ctrl']
+  , hyper = ['cmd', 'shift', 'ctrl', 'alt']
 
 api.bind('space', ['cmd', 'shift'], setMode('normal'))
 
-bind('normal', 'i', [], setMode('insert'))
 bind('normal', 'escape', [], setMode('insert'))
-bind('normal', 'return', [], setMode('insert'))
 
-bind('normal', 't', [], toWindow('iTerm'))
-bind('normal', 's', [], toWindow('Slack'))
-bind('normal', 'c', [], toWindow('Google Chrome'))
-bind('normal', 'c', shift, toWindow('Google Chrome Canary'))
-bind('normal', 'x', [], toWindow('Textual 5'))
-bind('normal', 'e', [], toWindow('Airmail 2'))
-bind('normal', 'p', [], toWindow('1Password'))
+bind('insert', 't', hyper, toWindow('iTerm'))
+bind('insert', 's', hyper, toWindow('Slack'))
+bind('insert', 'c', hyper, toWindow('Google Chrome'))
+bind('insert', 'x', hyper, toWindow('Textual 5'))
+bind('insert', 'e', hyper, toWindow('Airmail 2'))
+bind('insert', 'p', hyper, toWindow('1Password 5'))
 
 bind('normal', 'l', ctrl, rightHalf)
 bind('normal', 'h', ctrl, leftHalf)
@@ -27,11 +25,6 @@ bind('normal', 'l', shift, switchScreen('right'))
 bind('normal', 'h', shift, switchScreen('left'))
 
 bind('normal', 'return', ctrl, fullScreen)
-
-bind('normal', 'l', [], focus('Right'))
-bind('normal', 'h', [], focus('Left'))
-bind('normal', 'j', [], focus('Up'))
-bind('normal', 'k', [], focus('Down'))
 
 function bind(mode, key, mods, callback) {
   if(!keys[mode]) keys[mode] = []

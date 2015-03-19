@@ -93,9 +93,6 @@ vnoremap . :normal .<cr>
 " space as leader, just crazy enough to work
 let mapleader=" "
 let g:mapleader=" "
-" syntastic remaps
-noremap <leader>, :lprev<cr>
-noremap <leader>. :lnext<cr>
 " fugitive remaps
 noremap <leader>b :Gbrowse<cr>
 noremap <leader>d :Gdiff<cr>
