@@ -45,12 +45,12 @@ plugins=(git autojump npm tmux osx brew jira node pip gitfast vi-mode history-su
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+
 source $ZSH/oh-my-zsh.sh
 
 tmux source-file ~/.tmux.conf
 
 # Customize to your needs...
 source $HOME/.boxrc
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"

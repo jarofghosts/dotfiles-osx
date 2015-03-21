@@ -6,6 +6,7 @@ filetype indent on
 set conceallevel=2
 set concealcursor=nc
 set noshowmode
+set ttyfast
 syntax on
 
 set lazyredraw
