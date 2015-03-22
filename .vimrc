@@ -115,7 +115,7 @@ noremap <leader>T :!npm test<cr>
 " y yanks into system clipboard
 vmap <leader>y "*y
 " p pastes from system clipboard
-nmap <leader>p "*p
+nmap <leader>p o<esc>"*p
 " switch var statement with next var
 nmap <leader>s ddpcw  ,<esc>kvhhcvar<esc>
 
