@@ -167,6 +167,7 @@ let g:syntastic_javascript_eslint_args='--config ~/Projects/UA/ua-style/config.j
 let g:syntastic_html_checkers=[]
 
 let g:javascript_conceal_function = "ƒ"
+let g:javascript_double_literal_indent=1
 
 hi StatusLine term=reverse ctermfg=232 ctermbg=1
 " now set it up to change the status line based on mode
