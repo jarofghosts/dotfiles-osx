@@ -25,7 +25,7 @@ set ofu=syntaxcomplete#Complete
 set noswapfile
 " i dunno, just in case
 set number
-set history=500
+set history=1000
 set wildmenu
 set wildmode=full
 " highlight search terms
@@ -72,7 +72,7 @@ command! -bar -nargs=1 Browse silent! exe '!open' shellescape(<q-args>, 1)
 au BufNewFile,BufReadPost *.md set filetype=markdown
 let g:markdown_fenced_languages = ['css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml', 'html']
 
-colorscheme skittles_berry
+colorscheme molokai
 
 " ## MAPPINGS ##
 
@@ -166,9 +166,7 @@ let g:syntastic_javascript_checkers=['eslint']
 let g:syntastic_javascript_eslint_args='--config ~/Projects/UA/ua-style/config.json --rulesdir ~/Projects/UA/ua-style/lib/rules'
 let g:syntastic_html_checkers=[]
 
-" let g:javascript_conceal_function = "ƒ"
-" let g:javascript_conceal_null = "ø"
-" let g:javascript_conceal_NaN = "ℕ"
+let g:javascript_conceal_function = "ƒ"
 
 hi StatusLine term=reverse ctermfg=232 ctermbg=1
 " now set it up to change the status line based on mode
