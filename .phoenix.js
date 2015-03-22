@@ -1,4 +1,4 @@
-var currentMode = 'insert'
+var currentMode = null
   , keys = {}
 
 var shift = ['shift']
@@ -311,3 +311,6 @@ function moveToScreen(window, screen) {
     , height: frame.height
   })
 }
+
+setMode('insert')()
+
