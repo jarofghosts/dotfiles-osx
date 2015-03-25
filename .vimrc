@@ -7,6 +7,7 @@ set conceallevel=2
 set concealcursor=nc
 set noshowmode
 set ttyfast
+set suffixesadd=.js
 syntax on
 
 set lazyredraw
@@ -166,7 +167,6 @@ let g:syntastic_javascript_checkers=['eslint']
 let g:syntastic_javascript_eslint_args='--config ~/Projects/UA/ua-style/config.json --rulesdir ~/Projects/UA/ua-style/lib/rules'
 let g:syntastic_html_checkers=[]
 
-let g:javascript_conceal_function = "ƒ"
 let g:javascript_double_literal_indent=1
 
 hi StatusLine term=reverse ctermfg=232 ctermbg=1
