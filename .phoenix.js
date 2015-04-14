@@ -13,7 +13,7 @@ bind('insert', 't', hyper, toWindow('iTerm'))
 bind('insert', 's', hyper, toWindow('Slack'))
 bind('insert', 'c', hyper, toWindow('Google Chrome'))
 bind('insert', 'x', hyper, toWindow('Textual 5'))
-bind('insert', 'p', hyper, toWindow('1Password 5'))
+bind('insert', 'p', hyper, toWindow('1Password'))
 
 bind('normal', 'l', ctrl, rightHalf)
 bind('normal', 'h', ctrl, leftHalf)

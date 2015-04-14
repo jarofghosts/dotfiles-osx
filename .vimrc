@@ -143,7 +143,7 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
-let g:agprg="ag --nogroup --nocolor --ignore node_modules/ --ignore '*.min.*' --column"
+let g:agprg="ag --nogroup --nocolor --ignore '*.min.*' --column"
 
 " ## PLUGINS ##
 
