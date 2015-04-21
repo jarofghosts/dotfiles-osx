@@ -113,6 +113,7 @@ noremap <leader>f gf
 noremap <leader>F :vertical wincmd f<cr> 
 " T runs npm test
 noremap <leader>T :!npm test<cr>
+noremap <leader>t :!npm test %<cr>
 " y yanks into system clipboard
 vmap <leader>y "*y
 " p pastes from system clipboard
