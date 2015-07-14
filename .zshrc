@@ -40,17 +40,21 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git autojump npm tmux osx brew jira node pip gitfast vi-mode history-substring-search lein vagrant)
+plugins=(git autojump npm tmux osx brew node pip gitfast vi-mode history-substring-search lein vagrant)
 
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
+source $ZSH/oh-my-zsh.sh
 
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
-source $ZSH/oh-my-zsh.sh
+zmodload zsh/terminfo
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+bindkey "$terminfo[cuu1]" history-substring-search-up
+bindkey "$terminfo[cud1]" history-substring-search-down
 
 tmux source-file ~/.tmux.conf
 
 # Customize to your needs...
 source $HOME/.boxrc
+
