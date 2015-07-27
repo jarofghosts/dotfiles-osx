@@ -2,7 +2,7 @@
 	name = jesse keane
 	email = me@jessekeane.me
 [core]
-        editor = vim
+        editor = nvim
 [color]
         ui = true
 [push]

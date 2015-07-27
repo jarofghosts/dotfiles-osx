@@ -6,14 +6,11 @@ filetype indent on
 set conceallevel=2
 set concealcursor=nc
 set noshowmode
-set ttyfast
 set suffixesadd=.js
 syntax on
 
 set lazyredraw
 set background=dark
-" take that, vi
-set nocompatible
 set autoindent
 " reload files changed outside vim
 set autoread
@@ -152,13 +149,15 @@ let g:gist_post_private = 1
 let g:clojure_align_subforms = 1
 let g:clojure_align_multiline_strings = 1
 
-" Syntastic checker
-let g:syntastic_javascript_checkers=['eslint']
-let g:syntastic_html_checkers=[]
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
 let g:javascript_double_literal_indent=1
+
+let g:deoplete#enable_at_startup=1
+
+let g:neomake_javascript_enabled_makers = ['eslint']
+let g:airline_theme = 'molokai'
+let g:airline_powerline_fonts = 1
+
+autocmd! BufWritePost,BufEnter * Neomake
 
 hi StatusLine term=reverse ctermfg=232 ctermbg=1
 " now set it up to change the status line based on mode
@@ -166,3 +165,16 @@ if version >= 700
   au InsertEnter * hi StatusLine term=reverse ctermfg=1 ctermbg=232
   au InsertLeave * hi StatusLine term=reverse ctermfg=232 ctermbg=1
 endif
+
+let g:airline#extensions#whitespace#checks = []
+let g:airline#extensions#whitespace#trailing_format = ''
+
+function! AirlineInit()
+    let g:airline_section_a = airline#section#create(['mode'])
+    let g:airline_section_b = airline#section#create_left(['hunks'])
+    let g:airline_section_c = airline#section#create(['%f'])
+    let g:airline_section_x = airline#section#create(['branch'])
+    let g:airline_section_y = airline#section#create(['filetype'])
+endfunction
+
+autocmd VimEnter * call AirlineInit()
