@@ -77,16 +77,14 @@ colorscheme molokai
 " left and right arrows navigate buffers
 nnoremap <left> :bp<cr>
 nnoremap <right> :bn<cr>
-" set a mark before a search for easy jumping back
-nnoremap / ml/
-nnoremap ? ml?
+" up and down navigate jump list
+nnoremap <up> <c-o>
+nnoremap <down> <c-i>
 " allow c-p and c-n to do command filtering
 cnoremap <c-p> <up>
 cnoremap <c-n> <down>
-" remap ctrl+i to un-highlight search results
+" remap ctrl+l to un-highlight search results
 noremap <silent> <c-l> :nohls<cr><c-l>
-" ctrl+j activates :Ag
-noremap <c-j> :Ag 
 " . works in visual mode as it should
 vnoremap . :normal .<cr>
 " space as leader, just crazy enough to work
@@ -100,7 +98,7 @@ noremap <leader>l :Gblame<cr>
 noremap <leader>g :Gist<cr>
 " D toggles gitgutter
 noremap <leader>D :GitGutterToggle<cr>
-" p creates new pasttle
+" P creates new pasttle
 noremap <leader>P :Pasttle<cr>
 " u opens url
 noremap <leader>u gx
