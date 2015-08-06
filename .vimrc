@@ -90,6 +90,8 @@ vnoremap . :normal .<cr>
 " space as leader, just crazy enough to work
 let mapleader=" "
 let g:mapleader=" "
+" tern remaps
+noremap <leader>R :TernRename<cr>
 " fugitive remaps
 noremap <leader>b :Gbrowse<cr>
 noremap <leader>d :Gdiff<cr>
