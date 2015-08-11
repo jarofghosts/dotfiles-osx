@@ -67,3 +67,6 @@
 [submodule ".vim/bundle/vim-textobj-user"]
 	path = .vim/bundle/vim-textobj-user
 	url = git@github.com:kana/vim-textobj-user.git
+[submodule ".vim/bundle/quick-scope"]
+	path = .vim/bundle/quick-scope
+	url = git@github.com:unblevable/quick-scope.git
