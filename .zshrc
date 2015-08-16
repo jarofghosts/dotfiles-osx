@@ -50,4 +50,3 @@ tmux source-file ~/.tmux.conf
 
 # Customize to your needs...
 source $HOME/.boxrc
-
