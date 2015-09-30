@@ -149,7 +149,7 @@ let g:clojure_align_multiline_strings = 1
 
 let g:javascript_double_literal_indent=1
 
-let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_javascript_enabled_makers = ['standard']
 let g:neomake_python_enabled_makers = ['flake8']
 let g:airline_theme = 'molokai'
 let g:airline_powerline_fonts = 1
