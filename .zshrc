@@ -44,7 +44,8 @@ plugins=(git autojump npm tmux osx brew node pip gitfast vi-mode history-substri
 
 source $ZSH/oh-my-zsh.sh
 
-bindkey '^r' history-incremental-search-backwards
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
 tmux source-file ~/.tmux.conf
 

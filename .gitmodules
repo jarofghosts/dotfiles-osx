@@ -67,3 +67,6 @@
 [submodule ".vim/bundle/quick-scope"]
 	path = .vim/bundle/quick-scope
 	url = git@github.com:unblevable/quick-scope.git
+[submodule ".vim/bundle/vim-cljfmt"]
+	path = .vim/bundle/vim-cljfmt
+	url = https://github.com/venantius/vim-cljfmt.git
