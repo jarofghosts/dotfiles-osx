@@ -61,8 +61,6 @@ autocmd BufNewFile,BufRead *.ract set filetype=mustache
 autocmd BufRead,BufNewFile *.txt setlocal spell
 autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd BufRead,BufNewFile *.rst setlocal spell
-" autoclose fugitive buffers
-autocmd BufReadPost fugitive://* set bufhidden=delete
 " use open for Gbrowse in fugitive
 command! -bar -nargs=1 Browse silent! exe '!open' shellescape(<q-args>, 1)
 
@@ -90,16 +88,12 @@ vnoremap . :normal .<cr>
 " space as leader, just crazy enough to work
 let mapleader=" "
 let g:mapleader=" "
-" tern remaps
-noremap <leader>R :TernRename<cr>
 " fugitive remaps
 noremap <leader>b :Gbrowse<cr>
 noremap <leader>d :Gdiff<cr>
 noremap <leader>l :Gblame<cr>
 " g creates new secret gist
 noremap <leader>g :Gist<cr>
-" D toggles gitgutter
-noremap <leader>D :GitGutterToggle<cr>
 " P creates new pasttle
 noremap <leader>P :Pasttle<cr>
 " u opens url
@@ -156,8 +150,6 @@ let g:airline_powerline_fonts = 1
 
 let g:rainbow_active = 1
 
-autocmd! BufWritePost,BufEnter * Neomake
-
 hi StatusLine term=reverse ctermfg=232 ctermbg=1
 " now set it up to change the status line based on mode
 if version >= 700
@@ -177,3 +169,4 @@ function! AirlineInit()
 endfunction
 
 autocmd VimEnter * call AirlineInit()
+autocmd! BufWritePost,BufEnter * Neomake
