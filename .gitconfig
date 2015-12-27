@@ -3,6 +3,7 @@
 	email = me@jessekeane.me
 [core]
         editor = nvim
+	excludesfile = /Users/jessekeane/.gitignore
 [color]
         ui = true
 [push]

@@ -1,0 +1,17 @@
+source ~/.vimrc
+
+noremap <leader>gu :action Github.Open.In.Browser<cr>
+noremap <leader>gg :action Github.Create.Gist<cr>
+noremap <leader>gf :action Git.Fetch<cr>
+noremap <leader>gp :action Vcs.Push<cr>
+noremap <leader>gd :action Git.CompareWithBranch<cr>
+noremap <leader>gm :action Git.Merge<cr>
+noremap <leader>gs :action Git.Stash<cr>
+noremap <leader>gb :action Git.Branches<cr>
+noremap <leader>gc :action CheckinProject<cr>
+noremap <leader>ni :action InstallNodeLocalDependencies<cr>
+noremap <leader>nt :action Tool_npm_npm test<cr>
+noremap <leader>f :action GotoDeclaration<cr>
+noremap <leader>r :action ReformatCode<cr>
+noremap <leader>s b:action RenameElement<cr>i
+noremap <leader>v :action MoveTabRight<cr>
