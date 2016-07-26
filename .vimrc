@@ -103,7 +103,7 @@ noremap <leader>f gf
 " F opens file in new vertical split
 noremap <leader>F :vertical wincmd f<cr> 
 " T runs npm test
-noremap <leader>T :sp<cr><c-w>j:terminal<cr>npm test<cr>
+noremap <leader>T :sp<cr><c-w>j:terminal<cr>npm run test-file<cr>
 noremap <leader>t :let @" = expand("%:p")<cr>:sp<cr><c-w>j:terminal<cr>npm test <c-\><c-n>pi<cr>
 " y yanks into system clipboard
 vmap <leader>y "*y
