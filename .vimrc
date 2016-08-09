@@ -170,3 +170,4 @@ endfunction
 
 autocmd VimEnter * call AirlineInit()
 autocmd! BufWritePost,BufEnter * Neomake
+let g:deoplete#enable_at_startup = 1
