@@ -48,3 +48,5 @@ tmux source-file ~/.tmux.conf
 
 # Customize to your needs...
 source $HOME/.boxrc
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
