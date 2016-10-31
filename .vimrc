@@ -7,6 +7,7 @@ set conceallevel=2
 set concealcursor=nc
 set noshowmode
 set suffixesadd=.js
+set termguicolors
 syntax on
 
 set lazyredraw
