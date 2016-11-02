@@ -172,3 +172,5 @@ endfunction
 autocmd VimEnter * call AirlineInit()
 autocmd! BufWritePost,BufEnter * Neomake
 let g:deoplete#enable_at_startup = 1
+let g:python_host_prog = '/usr/local/bin/python2.7'
+let g:python3_host_prog = '/Library/Frameworks/Python.framework/Versions/3.4/bin/python3'
