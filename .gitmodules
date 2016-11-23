@@ -70,9 +70,6 @@
 [submodule ".vim/bundle/deoplete-ternjs"]
 	path = .vim/bundle/deoplete-ternjs
 	url = https://github.com/carlitux/deoplete-ternjs
-[submodule ".vim/bundle/deoplete-jedi"]
-	path = .vim/bundle/deoplete-jedi
-	url = https://github.com/zchee/deoplete-jedi
 [submodule ".vim/bundle/deoplete-flow"]
 	path = .vim/bundle/deoplete-flow
 	url = git@github.com:steelsojka/deoplete-flow.git
